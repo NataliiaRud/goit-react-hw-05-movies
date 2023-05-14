@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchMovieCast, fetchMovieReviews } from "services/api";
+import { fetchMovieReviews } from "services/api";
 import Loader from "components/Loader/Loader";
 import { useParams } from "react-router-dom";
 import { ReviewsListItem, ReviewsList } from "./Reviews.styled";
