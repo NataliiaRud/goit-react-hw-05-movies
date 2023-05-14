@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchMovieCast } from "services/api";
 import Loader from "components/Loader/Loader";
 import { useParams } from "react-router-dom";
+import { CastList, CastListItem } from "./Cast.styled";
 
 const Cast = () => {
     const [cast, setCast] = useState([])
@@ -29,13 +30,13 @@ const Cast = () => {
         <div>
             {isLoading && <Loader />}
             {error && <div>{error}</div>}
-            <ul>
+            <CastList>
                 {cast.map(({id, name, character, profile_path})=>
-                <li key={id}><img alt={name} src={`https://image.tmdb.org/t/p/original/${profile_path}`} width="100" />
+                <CastListItem key={id}><img alt={name} src={`https://image.tmdb.org/t/p/original/${profile_path}`} width="100" />
             <h3>{name}</h3>
                         <p>Character: {character}</p>
-                    </li>)}
-            </ul>
+                    </CastListItem>)}
+            </CastList>
         </div>
     )
 }

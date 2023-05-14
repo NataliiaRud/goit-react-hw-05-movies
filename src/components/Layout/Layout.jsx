@@ -1,20 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
-import { List } from "./Layout.styled";
+import {  Outlet } from "react-router-dom";
+import { Container, List, LayoutLink } from "./Layout.styled";
 
 
 const Layout = () => {
     return (
-        <div>
+        <Container>
     <List>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-        
-            </nav>
+          
+            <li>
+              <LayoutLink  to="/">Home</LayoutLink >
+            </li>
+            <li>
+        <LayoutLink to="/movies">Movies</LayoutLink >
+        </li>
+            
         </List>
         <main>
         <Outlet />
       </main>
-            </div>);
+            </Container>);
 }
 export default Layout;

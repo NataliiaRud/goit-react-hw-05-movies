@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchMovieCast, fetchMovieReviews } from "services/api";
 import Loader from "components/Loader/Loader";
 import { useParams } from "react-router-dom";
+import { ReviewsListItem, ReviewsList } from "./Reviews.styled";
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
@@ -33,13 +34,13 @@ const Reviews = () => {
             {error && <div>{error}</div>}
             {isDownloaded && reviews.length === 0 ? (
         <p>We don't have any reviews for this movie</p>):
-            (<ul>
+            (<ReviewsList>
                 {reviews.map(({id, author, content})=>
-                <li key={id}>
+                <ReviewsListItem key={id}>
             <h3>{author}</h3>
                         <p>{content}</p>
-                    </li>)}
-            </ul>)}
+                    </ReviewsListItem>)}
+            </ReviewsList>)}
         </div>
     )
 }

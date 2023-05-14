@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
+import { AddList, AddLink, Poster, AddInfo } from './MovieCard.styled';
 
 const MovieCard = ({ movie }) => {
     
@@ -11,7 +12,7 @@ const MovieCard = ({ movie }) => {
         
     <div>
       <div>
-        <img
+        <Poster
           alt={original_title}
           src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           width="200"
@@ -29,17 +30,17 @@ const MovieCard = ({ movie }) => {
           genres.length > 0 &&
           genres.map(genre => genre.name).join(', ')}</p>
       </div>
-      <p>
+      <AddInfo>
         Additional information
-      </p>
-      <ul>
+      </AddInfo>
+      <AddList>
         <li>
-          <Link to="cast">Cast</Link>
+          <AddLink to="cast">Cast</AddLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <AddLink to="reviews">Reviews</AddLink>
         </li>
-      </ul>
+      </AddList>
       <Outlet />
     </div>
   )
